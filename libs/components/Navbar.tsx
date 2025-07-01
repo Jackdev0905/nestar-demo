@@ -12,10 +12,10 @@ const Navbar = () => {
         </div>
         <div className="links">
           <Link href={"/"}>Home</Link>
-          <Link href={"/"}>Apartments</Link>
-          <Link href={"/"}>Maklers</Link>
-          <Link href={"/"}>Community</Link>
-          <Link href={"/"}>CS</Link>
+          <Link href={"/property"}>Apartments</Link>
+          <Link href={"/agent"}>Maklers</Link>
+          <Link href={"/community"}>Community</Link>
+          <Link href={"/cs"}>CS</Link>
         </div>
         <div className="user">
           <div className="image">

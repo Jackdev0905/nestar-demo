@@ -1,7 +1,10 @@
 import { Stack } from "@mui/material";
 import Head from "next/head";
+import Footer from "../Footer";
+import Navbar from "../Navbar";
+import Header from "../homepage/Header";
 
-const withLayoutBasic = (Component: any) => {
+const withLayouBasic = (Component: any) => {
   return (props: any) => {
     return (
       <>
@@ -10,17 +13,23 @@ const withLayoutBasic = (Component: any) => {
         </Head>
 
         <Stack id="pc-wrap">
-          <Stack sx={{ background: "#81c784" }}>Header Basic</Stack>
+          <Navbar />
+          <Stack className="header-basic">
+            <div className="text container">
+              <h1>Property Search</h1>
+              <p>We are glad to see you again!</p>
+            </div>
+          </Stack>
 
           <Stack id="main">
             <Component {...props} />
           </Stack>
-        </Stack>
 
-        <Stack sx={{ background: "#a1887f" }}>Footer</Stack>
+          <Footer />
+        </Stack>
       </>
     );
   };
 };
 
-export default withLayoutBasic;
+export default withLayouBasic;

@@ -9,7 +9,39 @@
     background-size: cover;
     position: relative;
   }
+
+  .header-basic {
+    background: url("/img/banner/properties.png");
+    width: 100%;
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .text {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      h1 {
+        color: #fff;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+      }
+      p {
+        color: #fff;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+  }
   .navbar {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
     height: 87px;
     color: white;
     justify-content: center;
@@ -219,7 +251,6 @@
         .term {
           display: flex;
           justify-content: flex-end;
-        
         }
       }
     }
