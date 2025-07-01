@@ -1,5 +1,8 @@
 import { Stack } from "@mui/material";
 import Head from "next/head";
+import Footer from "../Footer";
+import Navbar from "../Navbar";
+import Header from "../homepage/Header";
 
 const withLayouMain = (Component: any) => {
   return (props: any) => {
@@ -10,14 +13,17 @@ const withLayouMain = (Component: any) => {
         </Head>
 
         <Stack id="pc-wrap">
-          <Stack sx={{ background: "#81c784" }}>Header Home</Stack>
+          <Stack className="main-header">
+            <Navbar />
+            <Header/>
+          </Stack>
 
           <Stack id="main">
             <Component {...props} />
           </Stack>
-        </Stack>
 
-        <Stack sx={{ background: "#a1887f" }}>Footer</Stack>
+          <Footer />
+        </Stack>
       </>
     );
   };
