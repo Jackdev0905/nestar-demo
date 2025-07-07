@@ -3,9 +3,31 @@ import Head from "next/head";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Header from "../homepage/Header";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 
 const withLayouBasic = (Component: any) => {
   return (props: any) => {
+    const device = useDeviceDetect();
+
+  if (device === "mobile") {
+    return (
+       <>
+        <Head>
+          <title>Nestar</title>
+        </Head>
+
+        <Stack id="mobile-wrap">
+          <Navbar />
+
+          <Stack id="main">
+            <Component {...props} />
+          </Stack>
+
+          <Footer />
+        </Stack>
+      </>
+    );
+  } else
     return (
       <>
         <Head>

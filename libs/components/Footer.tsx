@@ -6,8 +6,14 @@ import {
 } from "@mui/icons-material";
 import { Stack } from "@mui/material";
 import Link from "next/link";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 const Footer = () => {
+  const device = useDeviceDetect();
+
+  if (device === "mobile") {
+    return <Stack sx={{background:"red", height: "200px"}}>Mobile Footer</Stack>;
+  } else
   return (
     <Stack className="footer">
       <div className="footer-menu container">

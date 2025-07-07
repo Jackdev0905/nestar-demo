@@ -3,29 +3,53 @@ import Head from "next/head";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Header from "../homepage/Header";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 
 const withLayouMain = (Component: any) => {
   return (props: any) => {
-    return (
-      <>
-        <Head>
-          <title>Nestar</title>
-        </Head>
+    const device = useDeviceDetect();
 
-        <Stack id="pc-wrap">
-          <Stack className="main-header">
-            <Navbar />
-            <Header/>
+    if (device === "mobile") {
+      return (
+        <>
+          <Head>
+            <title>Nestar</title>
+          </Head>
+
+          <Stack id="mobile-wrap">
+            <Stack className="main-header">
+              <Navbar />
+            </Stack>
+
+            <Stack id="main">
+              <Component {...props} />
+            </Stack>
+
+            <Footer />
           </Stack>
+        </>
+      );
+    } else
+      return (
+        <>
+          <Head>
+            <title>Nestar</title>
+          </Head>
 
-          <Stack id="main">
-            <Component {...props} />
+          <Stack id="pc-wrap">
+            <Stack className="main-header">
+              <Navbar />
+              <Header />
+            </Stack>
+
+            <Stack id="main">
+              <Component {...props} />
+            </Stack>
+
+            <Footer />
           </Stack>
-
-          <Footer />
-        </Stack>
-      </>
-    );
+        </>
+      );
   };
 };
 

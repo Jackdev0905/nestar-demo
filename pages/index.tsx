@@ -4,27 +4,34 @@ import TopAgents from "@/libs/components/homepage/TopAgents";
 import TopProperties from "@/libs/components/homepage/TopProperties";
 import TrendProperties from "@/libs/components/homepage/TrendProperties";
 import withLayoutMain from "@/libs/components/layout/LayoutHome";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 import { Box, Container, Stack } from "@mui/material";
 import { NextPage } from "next";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <Stack className="home-page">
-        <Stack flexDirection={"column"}>
-          <TrendProperties/>
-          <PopularProperties/>
-          <Advertisement/>
-          <TopProperties/>
-          <TopAgents/>
-        </Stack>
-      </Stack>
-    </>
-  );
-}
+  const device = useDeviceDetect();
 
-export default withLayoutMain(Home)
+  if (device === "mobile") {
+    return <Stack>Mobile Home Page</Stack>;
+  } else {
+    return (
+      <>
+        <Stack className="home-page">
+          <Stack flexDirection={"column"}>
+            <TrendProperties />
+            <PopularProperties />
+            <Advertisement />
+            <TopProperties />
+            <TopAgents />
+          </Stack>
+        </Stack>
+      </>
+    );
+  }
+};
+
+export default withLayoutMain(Home);
